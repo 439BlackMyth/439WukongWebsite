@@ -20,8 +20,9 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.5rem;
-  background-color: #1e1e1e;  /* 导航栏比背景略亮 */
+  /* 让导航稍微更宽松一点，你可再加大 */
+  padding: 1rem 1.5rem;
+  background-color: #1e1e1e;  
   box-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 
@@ -31,17 +32,18 @@ a {
   gap: 1rem;
 }
 
-/* 校徽 */
+/* 校徽图片 */
 .logo-img {
   width: 60px;
   height: 60px;
   object-fit: contain;
 }
 
+/* 课程标题 */
 .course-info h1 {
   margin: 0;
   font-size: 1.4rem;
-  color: #ffc107; /* CMU 可以换成金色或红色 */
+  color: #ffc107; /* 金色 */
 }
 
 .course-info p {
@@ -76,13 +78,13 @@ a {
 }
 
 /* ===================
-   Hero Banner
+   Hero Banner (第一张图)
    =================== */
 .hero-banner {
-  /* 你可以这里用 background-image: url() 做背景图
-     也可以在HTML中使用 <img> */
+  /* 这里使用 hero_banner.jpg，给顶部做大背景 */
   background: linear-gradient(to right, rgba(255,193,7,0.3), rgba(0,0,0,0.5)), 
-              url('wukong_banner.jpg') center/cover no-repeat;
+              url('hero_banner.jpg') center/cover no-repeat;
+
   min-height: 45vh;
   display: flex;
   align-items: center;
@@ -106,6 +108,7 @@ a {
   margin-bottom: 1rem;
   color: #f8f8f8;
 }
+
 /* 按钮风格 */
 .btn-gold {
   display: inline-block;
@@ -121,7 +124,7 @@ a {
 }
 
 /* ===================
-   主内容区
+   主内容区（第二张图可以在这里 <img src="wukong_banner.jpg">）
    =================== */
 .main-content {
   max-width: 900px;
@@ -146,7 +149,7 @@ a {
   color: #ddd;
 }
 
-/* 示例：额外区块 */
+/* 额外区块，用来排版正文内容 */
 .content-section {
   display: flex;
   flex-direction: column;
@@ -154,7 +157,7 @@ a {
   margin-top: 1.5rem;
 }
 
-/* 可让图片自适应宽度 */
+/* 图片自适应宽度 */
 .img-responsive {
   max-width: 100%;
   border-radius: 4px;
@@ -173,4 +176,3 @@ footer {
   color: #ccc;
   margin-top: 2rem;
 }
-
