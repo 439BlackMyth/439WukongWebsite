@@ -3,33 +3,33 @@
    ========================= */
 body {
   margin: 0;
-  background: #121212; /* 深色背景，更贴近“黑神话” */
-  color: #e0e0e0;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #121212; /* 深色背景，呼应“黑神话”主题 */
+  color: #e0e0e0;       /* 浅色文字 */
 }
 
-/* 链接默认继承文字颜色，去掉下划线 */
+/* 链接默认继承文字颜色，去除下划线 */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* =========================
-   头部 <header> 和 导航栏
+   Header 与导航
    ========================= */
 header {
   background: #1e1e1e;
-  padding: 1.2rem 2rem; /* 加大上下间距，让头部不那么挤 */
+  /* 比原先更大些，让导航不显得挤 */
+  padding: 1.2rem 2rem;
 }
 
-/* 你原先在 <header> 里用了 nav + .logo + .nav-links */
+/* 你的 <div class=\"logo\">Wukong 课程</div> */
 .logo {
-  color: #ffc107; /* 标题使用金色 */
-  font-size: 1.6rem;
+  color: #ffc107; /* 金色文字 */
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* 导航区域：显示为flex */
 nav {
   display: flex;
   justify-content: space-between;
@@ -39,36 +39,36 @@ nav {
   margin: 0 auto;
 }
 
-/* 你的 nav-links 是ul */
+/* 导航链接 (ul.nav-links) */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 .nav-links a {
-  color: #e0e0e0;
   font-weight: 500;
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  color: #e0e0e0;
 }
-
-/* 鼠标悬停时，背景微亮 */
 .nav-links a:hover {
-  background-color: rgba(255, 193, 7, 0.2);
+  background-color: rgba(255,193,7,0.2); /* 悬停时微亮金 */
 }
 
 /* =========================
-   Hero 区（.hero）
+   Hero 部分 (section.hero)
    ========================= */
 .hero {
-  /* 如果你有一张叫 wukong_banner.jpg 的图，就用下面这行替换 */
-  /* background: url('wukong_banner.jpg') center/cover no-repeat; */
-  /* 可以再加黑金渐变叠加 */
-  background: linear-gradient(to right, rgba(255,193,7,0.25), rgba(0,0,0,0.5)),
-              url('wukong_banner.jpg') center/cover no-repeat;
-  
-  min-height: 60vh;      /* 英雄区高度增大，展示更多画面 */
+  /* 如果你有悟空大图，可以用下面一行替换原先的渐变
+     background: url('wukong_banner.jpg') center/cover no-repeat;
+     如果只想渐变，保留原先就好
+  */
+  background: linear-gradient(to right, #3b2b1b, #1a1a1a);
+
+  /* 提高高度，让“悟空”头部等更多内容可见 */
+  min-height: 60vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,25 +76,27 @@ nav {
   text-align: center;
   padding: 4rem 2rem;
   color: #fff;
-  margin: 0 auto;
+  margin: 0; /* 去除多余外边距 */
 }
 
-/* 你现有的 .hero h1, .hero p */
+/* 你的 hero h1 */
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #ffc107;
+  color: #ffc107; /* 金色凸显标题 */
 }
 
+/* 若 hero 内有 p，也可改大些字号 */
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   max-width: 700px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto;
   line-height: 1.6;
+  color: #f0f0f0;
 }
 
 /* =========================
-   下面的介绍区(.intro) 和 .content
+   下面的介绍区 (.intro) 和 .content
    ========================= */
 .intro, .content {
   max-width: 800px;
@@ -105,6 +107,13 @@ nav {
 }
 
 .intro h2 {
+  font-size: 1.6rem;
+  color: #ffc107;
+  margin-bottom: 0.5rem;
+}
+
+/* 如果你有 .content h2 也可类似调整 */
+.content h2 {
   font-size: 1.6rem;
   color: #ffc107;
   margin-bottom: 0.5rem;
