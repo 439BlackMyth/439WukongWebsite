@@ -1,131 +1,237 @@
 /* =========================
-   全局设置
+   全局（body, a）
    ========================= */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  background: #121212; /* 深色背景，呼应“黑神话”主题 */
+  background: #121212; /* 深色背景 */
   color: #e0e0e0;       /* 浅色文字 */
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* 链接默认继承文字颜色，去除下划线 */
 a {
   text-decoration: none;
   color: inherit;
 }
 
 /* =========================
-   Header 与导航
+   头部 header-topbar
    ========================= */
-header {
-  background: #1e1e1e;
-  /* 比原先更大些，让导航不显得挤 */
-  padding: 1.2rem 2rem;
-}
-
-/* 你的 <div class=\"logo\">Wukong 课程</div> */
-.logo {
-  color: #ffc107; /* 金色文字 */
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-nav {
+.header-topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+
+  /* 让导航更宽松 */
+  padding: 1.2rem 2rem;
+
+  background-color: #1e1e1e;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 
-/* 导航链接 (ul.nav-links) */
-.nav-links {
-  list-style: none;
+/* 左侧部分：logo-img + course-info */
+.left-section {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
-.nav-links a {
-  font-weight: 500;
+
+/* 校徽图片（cmu_logo.png） */
+.logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* 课程标题与学期信息 */
+.course-info h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #ffc107; /* 金色 */
+}
+.course-info p {
+  margin: 3px 0 0 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* =========================
+   顶部导航 nav
+   ========================= */
+.nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav ul li a {
+  position: relative;
+  display: block;
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  font-weight: 500;
   color: #e0e0e0;
 }
-.nav-links a:hover {
-  background-color: rgba(255,193,7,0.2); /* 悬停时微亮金 */
+.nav ul li a:hover {
+  background-color: rgba(255, 193, 7, 0.2);
+}
+.active-link {
+  background-color: rgba(255, 193, 7, 0.3);
+  color: #fff;
 }
 
 /* =========================
-   Hero 部分 (section.hero)
+   Hero Banner（index.html）
+   如果你不在 index.html 用 hero-banner，就无影响
    ========================= */
-.hero {
-  /* 如果你有悟空大图，可以用下面一行替换原先的渐变
-     background: url('wukong_banner.jpg') center/cover no-repeat;
-     如果只想渐变，保留原先就好
-  */
-  background: linear-gradient(to right, #3b2b1b, #1a1a1a);
-
-  /* 提高高度，让“悟空”头部等更多内容可见 */
-  min-height: 60vh;
-
+.hero-banner {
+  min-height: 45vh; /* 可以调高一点，如 60vh */
+  background:
+    linear-gradient(to right, rgba(255,193,7,0.3), rgba(0,0,0,0.5)),
+    url('wukong_banner.jpg') center/cover no-repeat;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 2rem;
   color: #fff;
-  margin: 0; /* 去除多余外边距 */
 }
-
-/* 你的 hero h1 */
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #ffc107; /* 金色凸显标题 */
+.hero-text {
+  max-width: 600px;
+  margin: 0 1rem;
 }
-
-/* 若 hero 内有 p，也可改大些字号 */
-.hero p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ffc107;
+}
+.hero-text p {
+  font-size: 1rem;
   line-height: 1.6;
-  color: #f0f0f0;
+  margin-bottom: 1rem;
+  color: #f8f8f8;
+}
+/* 金色按钮 */
+.btn-gold {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  background-color: #ffc107;
+  color: #222;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.btn-gold:hover {
+  background-color: #ffca2c;
 }
 
 /* =========================
-   下面的介绍区 (.intro) 和 .content
+   主内容区（.main-content）
    ========================= */
-.intro, .content {
-  max-width: 800px;
+.main-content {
+  max-width: 900px;
   margin: 2rem auto;
-  padding: 0 1rem;
+  background: #1d1d1d;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.main-content h2 {
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
+  color: #ffc107; /* 金色 */
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.main-content p,
+.main-content li {
   line-height: 1.7;
   color: #ddd;
+  margin-bottom: 1rem;
 }
 
-.intro h2 {
-  font-size: 1.6rem;
-  color: #ffc107;
-  margin-bottom: 0.5rem;
+.main-content h3 {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-top: 1.2rem;
 }
 
-/* 如果你有 .content h2 也可类似调整 */
-.content h2 {
-  font-size: 1.6rem;
-  color: #ffc107;
-  margin-bottom: 0.5rem;
+/* 可选：让 ul, ol 有点缩进 */
+.main-content ul,
+.main-content ol {
+  margin-left: 1.3rem;
 }
 
 /* =========================
-   页脚
+   content-section（index示例）
+   ========================= */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* 图片自适应 */
+.img-responsive {
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   events.html：.event, .event-images
+   ========================= */
+.event {
+  margin-bottom: 2rem;
+  background: #2a2a2a;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+.event h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #ffc107; 
+}
+.event-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.event-images img {
+  max-width: 200px; /* 让缩略图不至于太大 */
+  border-radius: 4px;
+  border: 2px solid #333;
+  object-fit: cover;
+}
+
+/* =========================
+   reflection.html：内的 blockquote
+   ========================= */
+blockquote {
+  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  border-left: 4px solid #ffc107;
+  background: #2a2a2a;
+  color: #ddd;
+  border-radius: 4px;
+}
+
+/* =========================
+   页脚 footer
    ========================= */
 footer {
-  background: #1e1e1e;
   text-align: center;
+  background-color: #1e1e1e;
+  border-top: 1px solid #333;
   padding: 1rem;
   color: #ccc;
   margin-top: 2rem;
 }
+
