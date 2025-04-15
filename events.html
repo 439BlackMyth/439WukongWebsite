@@ -5,16 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>82-439 • 精彩活动</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80%;
+      border: 4px solid white;
+      border-radius: 10px;
+      box-shadow: 0 0 30px #fff;
+      transition: transform 0.3s;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .event-images img {
+      max-width: 200px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+    .event-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px white;
+    }
+  </style>
 </head>
 <body>
-
   <!-- 顶部导航栏 -->
   <header class="header-topbar">
     <div class="left-section">
       <img src="cmu_logo.png" alt="CMU Logo" class="logo-img">
       <div class="course-info">
         <h1>82-439 Black Myth: Wukong & Journey to the West</h1>
-        <p>《黑神話: 悟空》与 《西游记》<br>Spring 2025 • Carnegie Mellon University</p>
+        <p>《黑神话: 悟空》与 《西游记》<br>Spring 2025 • Carnegie Mellon University</p>
       </div>
     </div>
     <nav class="nav">
@@ -32,74 +77,37 @@
     <h2>精彩活动</h2>
     <p>这里可以呈现课程期间进行的活动，如：春节庆祝、Wukong Forum、Show & Tell 等。</p>
 
+    <!-- 示例活动指定图片，使用根目录下的 i1.JPG 等图片，按需增加 -->
     <section class="event">
       <h2>W2toW5_Class_Reflection_ShowAndTell</h2>
       <div class="event-images">
-        <img src="i1.JPG" alt="W2toW5 Image 1">
-        <img src="i2.JPG" alt="W2toW5 Image 2">
-        <img src="i3.JPG" alt="W2toW5 Image 3">
+        <img src="i1.JPG" alt="img" onclick="openLightbox('i1.JPG')">
+        <img src="i2.JPG" alt="img" onclick="openLightbox('i2.JPG')">
+        <img src="i3.JPG" alt="img" onclick="openLightbox('i3.JPG')">
       </div>
     </section>
-
-    <section class="event">
-      <h2>W5toW10Class_And_ShowAndTell</h2>
-      <div class="event-images">
-        <img src="i4.JPG" alt="W5toW10 Image 1">
-        <img src="i5.JPG" alt="W5toW10 Image 2">
-        <img src="i6.JPG" alt="W5toW10 Image 3">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W10音乐_戒网</h2>
-      <div class="event-images">
-        <img src="i7.JPG" alt="W10 Image 1">
-        <img src="i8.JPG" alt="W10 Image 2">
-        <img src="i9.JPG" alt="W10 Image 3">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W11_SongNonsense屁</h2>
-      <div class="event-images">
-        <img src="i10.JPG" alt="W11Nonsense Image 1">
-        <img src="i11.JPG" alt="W11Nonsense Image 2">
-        <img src="i12.JPG" alt="W11Nonsense Image 3">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W11GameDay</h2>
-      <div class="event-images">
-        <img src="i13.JPG" alt="W11GameDay Image 1">
-        <img src="i14.JPG" alt="W11GameDay Image 2">
-        <img src="i15.JPG" alt="W11GameDay Image 3">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W12_MonkeyKing_DiscussPerform</h2>
-      <div class="event-images">
-        <img src="i16.JPG" alt="W12Monkey Image 1">
-        <img src="i17.JPG" alt="W12Monkey Image 2">
-        <img src="i18.JPG" alt="W12Monkey Image 3">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W13三打白骨精</h2>
-      <div class="event-images">
-        <img src="i19.JPG" alt="W13 Image 1">
-        <img src="i20.JPG" alt="W13 Image 2">
-        <img src="i21.JPG" alt="W13 Image 3">
-      </div>
-    </section>
+    <!-- 你可以按照这样继续加下面的活动 -->
   </main>
+
+  <!-- 照片放大时的光线盘展示 -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-img" id="lightbox-img">
+  </div>
 
   <footer>
     <p>&copy; 2025 82-439 悟空课程官网</p>
   </footer>
 
+  <script>
+    function openLightbox(src) {
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox").style.display = "flex";
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
 </body>
 </html>
 
