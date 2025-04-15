@@ -18,6 +18,7 @@
       align-items: center;
       z-index: 1000;
       animation: fadeIn 0.3s ease-in-out;
+      flex-direction: column;
     }
     .lightbox-img {
       max-width: 90%;
@@ -33,6 +34,23 @@
       right: 40px;
       font-size: 40px;
       color: white;
+      cursor: pointer;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 40px;
+    }
+    .lightbox-nav button {
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      padding: 10px 20px;
+      font-size: 20px;
+      border-radius: 5px;
       cursor: pointer;
     }
     @keyframes fadeIn {
@@ -108,7 +126,7 @@
       <button onclick="showSection('fall')">2025 Fall</button>
     </div>
 
-    <div id="spring" class="event-section">
+    <div id="spring" class="event-section active">
       <section class="event">
         <h2>Week 2–5 Class Show and Tell</h2>
         <p>同学们挑选了自己感兴趣的内容展开介绍：有人分析了黑神话中的战斗系统，有人深入讲解了剧情设定，也有同学聚焦于《西游记》中具体章节的情节发展。这是一次思想碰撞与文化探索的盛会。</p>
@@ -177,9 +195,13 @@
     </div>
   </main>
 
-  <div id="lightbox" onclick="closeLightbox()">
+  <div id="lightbox" onclick="closeLightbox(event)">
     <span class="close-btn">&times;</span>
     <img class="lightbox-img" id="lightbox-img">
+    <div class="lightbox-nav">
+      <button onclick="navigateLightbox(-1, event)">&#8592;</button>
+      <button onclick="navigateLightbox(1, event)">&#8594;</button>
+    </div>
   </div>
 
   <footer>
@@ -187,13 +209,29 @@
   </footer>
 
   <script>
+    let currentGroup = [];
+    let currentIndex = 0;
+
     function openLightbox(src) {
+      const images = Array.from(document.querySelectorAll('img')).filter(img => img.onclick && img.onclick.toString().includes('openLightbox'));
+      currentGroup = images.map(img => img.getAttribute('src'));
+      currentIndex = currentGroup.indexOf(src);
       document.getElementById("lightbox-img").src = src;
       document.getElementById("lightbox").style.display = "flex";
     }
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
+
+    function closeLightbox(event) {
+      if (event.target.id === 'lightbox' || event.target.classList.contains('close-btn')) {
+        document.getElementById("lightbox").style.display = "none";
+      }
     }
+
+    function navigateLightbox(direction, event) {
+      event.stopPropagation();
+      currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+      document.getElementById("lightbox-img").src = currentGroup[currentIndex];
+    }
+
     function showSection(section) {
       document.querySelectorAll('.event-section').forEach(div => div.classList.remove('active'));
       document.getElementById(section).classList.add('active');
