@@ -6,51 +6,30 @@
   <title>82-439 • 精彩活动</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    #lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: none;
+    .event-buttons {
+      display: flex;
       justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      animation: fadeIn 0.3s ease-in-out;
+      margin-top: 2rem;
+      gap: 2rem;
     }
-    .lightbox-img {
-      max-width: 90%;
-      max-height: 80%;
-      border: 4px solid white;
-      border-radius: 10px;
-      box-shadow: 0 0 30px #fff;
-      transition: transform 0.3s;
-    }
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      font-size: 40px;
-      color: white;
+    .event-buttons button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      background-color: gold;
+      color: black;
       cursor: pointer;
+      transition: background-color 0.2s;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .event-buttons button:hover {
+      background-color: darkorange;
     }
-    .event-images img {
-      width: 180px;
-      height: auto;
-      margin: 10px;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: transform 0.2s ease;
-      object-fit: cover;
+    .event-section {
+      display: none;
     }
-    .event-images img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px white;
+    .event-section.active {
+      display: block;
     }
   </style>
 </head>
@@ -77,68 +56,76 @@
 
   <main class="main-content">
     <h2>精彩活动</h2>
-    <p>这里可以呈现课程期间进行的活动，如：春节庆祝、Wukong Forum、Show & Tell 等。</p>
+    <p>请选择学期查看相关活动内容：</p>
 
-    <section class="event">
-      <h2>W2toW5_Class_Reflection_ShowAndTell</h2>
-      <div class="event-images">
-        <img src="images/i1.JPG" alt="img" onclick="openLightbox('images/i1.JPG')">
-        <img src="images/i2.JPG" alt="img" onclick="openLightbox('images/i2.JPG')">
-        <img src="images/i3.JPG" alt="img" onclick="openLightbox('images/i3.JPG')">
-      </div>
-    </section>
+    <div class="event-buttons">
+      <button onclick="showSection('spring')">2025 Spring</button>
+      <button onclick="showSection('fall')">2025 Fall</button>
+    </div>
 
-    <section class="event">
-      <h2>W5toW10Class_And_ShowAndTell</h2>
-      <div class="event-images">
-        <img src="images/i4.JPG" alt="img" onclick="openLightbox('images/i4.JPG')">
-        <img src="images/i5.JPG" alt="img" onclick="openLightbox('images/i5.JPG')">
-        <img src="images/i6.JPG" alt="img" onclick="openLightbox('images/i6.JPG')">
-      </div>
-    </section>
+    <!-- Spring Section -->
+    <div id="spring" class="event-section active">
+      <!-- Spring 活动内容（原来已有的完整内容）放在这里 -->
+      <section class="event">
+        <h2>W2toW5_Class_Reflection_ShowAndTell</h2>
+        <div class="event-images">
+          <img src="images/i1.JPG" alt="img" onclick="openLightbox('images/i1.JPG')">
+          <img src="images/i2.JPG" alt="img" onclick="openLightbox('images/i2.JPG')">
+          <img src="images/i3.JPG" alt="img" onclick="openLightbox('images/i3.JPG')">
+        </div>
+      </section>
+      <section class="event">
+        <h2>W5toW10Class_And_ShowAndTell</h2>
+        <div class="event-images">
+          <img src="images/i4.JPG" alt="img" onclick="openLightbox('images/i4.JPG')">
+          <img src="images/i5.JPG" alt="img" onclick="openLightbox('images/i5.JPG')">
+          <img src="images/i6.JPG" alt="img" onclick="openLightbox('images/i6.JPG')">
+        </div>
+      </section>
+      <section class="event">
+        <h2>W10音乐_戒网</h2>
+        <div class="event-images">
+          <img src="images/i7.JPG" alt="img" onclick="openLightbox('images/i7.JPG')">
+          <img src="images/i8.JPG" alt="img" onclick="openLightbox('images/i8.JPG')">
+          <img src="images/i9.JPG" alt="img" onclick="openLightbox('images/i9.JPG')">
+        </div>
+      </section>
+      <section class="event">
+        <h2>W11_SongNonsense屁</h2>
+        <div class="event-images">
+          <img src="images/i10.JPG" alt="img" onclick="openLightbox('images/i10.JPG')">
+          <img src="images/i11.JPG" alt="img" onclick="openLightbox('images/i11.JPG')">
+          <img src="images/i12.JPG" alt="img" onclick="openLightbox('images/i12.JPG')">
+        </div>
+      </section>
+      <section class="event">
+        <h2>W11GameDay</h2>
+        <div class="event-images">
+          <img src="images/i13.JPG" alt="img" onclick="openLightbox('images/i13.JPG')">
+          <img src="images/i14.JPG" alt="img" onclick="openLightbox('images/i14.JPG')">
+          <img src="images/i15.JPG" alt="img" onclick="openLightbox('images/i15.JPG')">
+        </div>
+      </section>
+      <section class="event">
+        <h2>W12_MonkeyKing_DiscussPerform</h2>
+        <div class="event-images">
+          <img src="images/i16.JPG" alt="img" onclick="openLightbox('images/i16.JPG')">
+        </div>
+      </section>
+      <section class="event">
+        <h2>W13三打白骨精</h2>
+        <div class="event-images">
+          <img src="images/i19.JPG" alt="img" onclick="openLightbox('images/i19.JPG')">
+          <img src="images/i20.JPG" alt="img" onclick="openLightbox('images/i20.JPG')">
+          <img src="images/i21.JPG" alt="img" onclick="openLightbox('images/i21.JPG')">
+        </div>
+      </section>
+    </div>
 
-    <section class="event">
-      <h2>W10音乐_戒网</h2>
-      <div class="event-images">
-        <img src="images/i7.JPG" alt="img" onclick="openLightbox('images/i7.JPG')">
-        <img src="images/i8.JPG" alt="img" onclick="openLightbox('images/i8.JPG')">
-        <img src="images/i9.JPG" alt="img" onclick="openLightbox('images/i9.JPG')">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W11_SongNonsense屁</h2>
-      <div class="event-images">
-        <img src="images/i10.JPG" alt="img" onclick="openLightbox('images/i10.JPG')">
-        <img src="images/i11.JPG" alt="img" onclick="openLightbox('images/i11.JPG')">
-        <img src="images/i12.JPG" alt="img" onclick="openLightbox('images/i12.JPG')">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W11GameDay</h2>
-      <div class="event-images">
-        <img src="images/i13.JPG" alt="img" onclick="openLightbox('images/i13.JPG')">
-        <img src="images/i14.JPG" alt="img" onclick="openLightbox('images/i14.JPG')">
-        <img src="images/i15.JPG" alt="img" onclick="openLightbox('images/i15.JPG')">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W12_MonkeyKing_DiscussPerform</h2>
-      <div class="event-images">
-        <img src="images/i16.JPG" alt="img" onclick="openLightbox('images/i16.JPG')">
-      </div>
-    </section>
-
-    <section class="event">
-      <h2>W13三打白骨精</h2>
-      <div class="event-images">
-        <img src="images/i19.JPG" alt="img" onclick="openLightbox('images/i19.JPG')">
-        <img src="images/i20.JPG" alt="img" onclick="openLightbox('images/i20.JPG')">
-        <img src="images/i21.JPG" alt="img" onclick="openLightbox('images/i21.JPG')">
-      </div>
-    </section>
+    <!-- Fall Section -->
+    <div id="fall" class="event-section">
+      <h3 style="text-align: center; margin-top: 50px;">敬请期待！</h3>
+    </div>
   </main>
 
   <div id="lightbox" onclick="closeLightbox()">
@@ -158,7 +145,10 @@
     function closeLightbox() {
       document.getElementById("lightbox").style.display = "none";
     }
+    function showSection(section) {
+      document.querySelectorAll('.event-section').forEach(div => div.classList.remove('active'));
+      document.getElementById(section).classList.add('active');
+    }
   </script>
 </body>
 </html>
-
