@@ -1,175 +1,122 @@
-/* ===================
+/* =========================
    全局设置
-   =================== */
+   ========================= */
 body {
   margin: 0;
-  background: #121212; /* 深色背景，呼应“黑神话”主题 */
-  color: #e0e0e0;      /* 文字为浅色 */
+  background: #121212; /* 深色背景，更贴近“黑神话” */
+  color: #e0e0e0;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* 链接默认继承文字颜色，去掉下划线 */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* ===================
-   顶部导航
-   =================== */
-.header-topbar {
+/* =========================
+   头部 <header> 和 导航栏
+   ========================= */
+header {
+  background: #1e1e1e;
+  padding: 1.2rem 2rem; /* 加大上下间距，让头部不那么挤 */
+}
+
+/* 你原先在 <header> 里用了 nav + .logo + .nav-links */
+.logo {
+  color: #ffc107; /* 标题使用金色 */
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* 导航区域：显示为flex */
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.5rem;
-  background-color: #1e1e1e;  /* 导航栏比背景略亮 */
-  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.left-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* 校徽 */
-.logo-img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.course-info h1 {
-  margin: 0;
-  font-size: 1.4rem;
-  color: #ffc107; /* CMU 可以换成金色或红色 */
-}
-
-.course-info p {
-  margin: 2px 0 0 0;
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-/* 导航菜单 */
-.nav ul {
-  display: flex;
-  gap: 1rem;
+/* 你的 nav-links 是ul */
+.nav-links {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  gap: 1rem;
 }
-.nav ul li a {
-  position: relative;
-  display: block;
+.nav-links a {
+  color: #e0e0e0;
+  font-weight: 500;
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   transition: background-color 0.2s ease;
-  font-weight: 500;
-  color: #e0e0e0;
-}
-.nav ul li a:hover {
-  background-color: rgba(255, 193, 7, 0.2);
-}
-.active-link {
-  background-color: rgba(255, 193, 7, 0.3);
-  color: #fff;
 }
 
-/* ===================
-   Hero Banner
-   =================== */
-.hero-banner {
-  /* 你可以这里用 background-image: url() 做背景图
-     也可以在HTML中使用 <img> */
-  background: linear-gradient(to right, rgba(255,193,7,0.3), rgba(0,0,0,0.5)), 
+/* 鼠标悬停时，背景微亮 */
+.nav-links a:hover {
+  background-color: rgba(255, 193, 7, 0.2);
+}
+
+/* =========================
+   Hero 区（.hero）
+   ========================= */
+.hero {
+  /* 如果你有一张叫 wukong_banner.jpg 的图，就用下面这行替换 */
+  /* background: url('wukong_banner.jpg') center/cover no-repeat; */
+  /* 可以再加黑金渐变叠加 */
+  background: linear-gradient(to right, rgba(255,193,7,0.25), rgba(0,0,0,0.5)),
               url('wukong_banner.jpg') center/cover no-repeat;
-  min-height: 45vh;
+  
+  min-height: 60vh;      /* 英雄区高度增大，展示更多画面 */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 4rem 2rem;
   color: #fff;
+  margin: 0 auto;
 }
 
-.hero-text {
-  max-width: 600px;
-  margin: 0 1rem;
-}
-.hero-text h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #ffc107;
-}
-.hero-text p {
-  font-size: 1rem;
-  line-height: 1.6;
+/* 你现有的 .hero h1, .hero p */
+.hero h1 {
+  font-size: 3rem;
   margin-bottom: 1rem;
-  color: #f8f8f8;
-}
-/* 按钮风格 */
-.btn-gold {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  background-color: #ffc107;
-  color: #222;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-.btn-gold:hover {
-  background-color: #ffca2c;
-}
-
-/* ===================
-   主内容区
-   =================== */
-.main-content {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #1d1d1d;
-  border-radius: 8px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.main-content h2 {
-  margin-top: 0.5rem;
-  font-size: 1.6rem;
   color: #ffc107;
-  border-bottom: 1px solid #444;
-  padding-bottom: 0.3rem;
 }
 
-.main-content p {
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.6;
+}
+
+/* =========================
+   下面的介绍区(.intro) 和 .content
+   ========================= */
+.intro, .content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   line-height: 1.7;
-  margin: 0.8rem 0;
   color: #ddd;
 }
 
-/* 示例：额外区块 */
-.content-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
+.intro h2 {
+  font-size: 1.6rem;
+  color: #ffc107;
+  margin-bottom: 0.5rem;
 }
 
-/* 可让图片自适应宽度 */
-.img-responsive {
-  max-width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
-/* ===================
+/* =========================
    页脚
-   =================== */
+   ========================= */
 footer {
+  background: #1e1e1e;
   text-align: center;
-  padding: 1rem 0;
-  background-color: #1e1e1e;
-  border-top: 1px solid #333;
-  font-size: 0.9rem;
+  padding: 1rem;
   color: #ccc;
   margin-top: 2rem;
 }
