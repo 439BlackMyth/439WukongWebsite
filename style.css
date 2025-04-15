@@ -1,61 +1,62 @@
 /* ===================
-   通用样式
+   整体布局与排版
    =================== */
+
+/* 使用系统字体或者 Helvetica Neue, Arial 优先 */
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  background: #fff;
-  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #fefdfc; /* 柔和的浅色背景 */
+  color: #444;         /* 稍深的文字颜色, 提升可读性 */
 }
 
+/* 链接样式 */
 a {
   text-decoration: none;
-  color: #333;
-}
-
-header,
-footer {
-  width: 100%;
-  box-sizing: border-box;
+  color: inherit; 
 }
 
 /* ===================
-   顶部导航部分
+   顶部导航区域
    =================== */
+
 .header-topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid #ddd;
-  background-color: #f9f9f9;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(90deg, #d7e9ff 0%, #ecf4ff 100%);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-/* 左侧：图标 + 课程大标题 */
 .left-section {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+/* 校徽 Logo 图片 */
 .logo-img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
 }
 
+/* 课程标题、学期信息 */
 .course-info h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
 }
 
 .course-info p {
-  margin: 0;
+  margin: 2px 0 0 0;
   font-size: 0.9rem;
   color: #555;
 }
 
-/* 右侧：导航菜单 */
+/* 导航菜单 */
 .nav ul {
   display: flex;
   gap: 1rem;
@@ -64,46 +65,107 @@ footer {
   padding: 0;
 }
 
+/* 导航链接的常态、鼠标悬停、激活态 */
 .nav ul li a {
-  font-weight: 500;
+  position: relative;
+  display: block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
   color: #333;
+  font-weight: 500;
 }
 
 .nav ul li a:hover {
-  color: #0072ce; /* CMU蓝色 */
+  background-color: rgba(255,255,255,0.4);
 }
 
 .active-link {
-  color: #c41230; /* CMU红色 */
+  background-color: #cce0ff;
+  color: #222;
 }
 
 /* ===================
-   内容区
+   内容区（main）
    =================== */
+
 .main-content {
   max-width: 900px;
-  margin: 1.5rem auto;
-  padding: 0 1rem;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
+/* 标题样式调整：更柔和、更现代 */
 h2 {
-  margin-top: 1rem;
-  font-size: 1.75rem;
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
 }
 
 h3 {
   margin-top: 1.2rem;
   font-size: 1.2rem;
-  color: #333;
+  color: #34495e;
+}
+
+/* 列表、段落的间距微调 */
+ul, ol {
+  margin: 0.5rem 0 1.5rem 1.5rem;
+  line-height: 1.6;
+}
+
+p, li {
+  line-height: 1.7;
+  margin: 0.8rem 0;
+}
+
+/* 为 pre/code 区域增加一点视觉区别 */
+pre {
+  background: #f8f8f8;
+  padding: 0.8rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* blockquote 引用美化 */
+blockquote {
+  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  border-left: 4px solid #cce0ff;
+  background: #f9fbff;
+  color: #555;
 }
 
 /* ===================
    页脚
    =================== */
+
 footer {
   text-align: center;
   padding: 1rem 0;
-  background-color: #fafafa;
-  border-top: 1px solid #ddd;
+  background-color: #f2f5fa;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 2rem;
 }
+
+/* ===================
+   其他自定义类（可选）
+   =================== */
+
+/* 如果需要给活动/作品等内容加卡片风格，可使用 .card */
+.card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+}
+
 
