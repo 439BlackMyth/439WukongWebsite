@@ -196,12 +196,13 @@
   </main>
 
   <div id="lightbox" onclick="closeLightbox(event)">
-    <span class="close-btn">&times;</span>
+  <span class="close-btn">&times;</span>
+  <div class="lightbox-nav">
+    <button id="prevBtn">&#8592;</button>
     <img class="lightbox-img" id="lightbox-img">
-    <div class="lightbox-nav">
-      <button onclick="navigateLightbox(-1, event)">&#8592;</button>
-      <button onclick="navigateLightbox(1, event)">&#8594;</button>
-    </div>
+    <button id="nextBtn">&#8594;</button>
+  </div>
+</div>
   </div>
 
   <footer>
@@ -240,9 +241,22 @@
     }
 
     function showSection(section) {
-      document.querySelectorAll('.event-section').forEach(div => div.classList.remove('active'));
-      document.getElementById(section).classList.add('active');
-    }
+  document.querySelectorAll('.event-section').forEach(div => div.classList.remove('active'));
+  document.getElementById(section).classList.add('active');
+}
+
+// Attach event listeners after DOM load
+window.onload = function () {
+  document.getElementById('prevBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    navigateLightbox(-1);
+  });
+  document.getElementById('nextBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    navigateLightbox(1);
+  });
+};
   </script>
 </body>
 </html>
+
