@@ -83,7 +83,7 @@ a {
 .hero-banner {
   /* 这里使用 hero_banner.jpg，给顶部做大背景 */
   background: linear-gradient(to right, rgba(255,193,7,0.3), rgba(0,0,0,0.5)), 
-              url('hero_banner.jpg') center/cover no-repeat;
+              url('banner.jpg') center/cover no-repeat;
 
   min-height: 45vh;
   display: flex;
