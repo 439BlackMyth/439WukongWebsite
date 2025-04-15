@@ -6,6 +6,52 @@
   <title>82-439 • 精彩活动</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80%;
+      border: 4px solid white;
+      border-radius: 10px;
+      box-shadow: 0 0 30px #fff;
+      transition: transform 0.3s;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .event-images img {
+      width: 180px;
+      height: auto;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+      object-fit: cover;
+    }
+    .event-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px white;
+    }
     .event-buttons {
       display: flex;
       justify-content: center;
@@ -65,7 +111,6 @@
 
     <!-- Spring Section -->
     <div id="spring" class="event-section active">
-      <!-- Spring 活动内容（原来已有的完整内容）放在这里 -->
       <section class="event">
         <h2>W2toW5_Class_Reflection_ShowAndTell</h2>
         <div class="event-images">
@@ -152,3 +197,4 @@
   </script>
 </body>
 </html>
+
