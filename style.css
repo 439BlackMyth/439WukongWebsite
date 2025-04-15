@@ -1,63 +1,109 @@
-
-<!-- ========== style.css ========== -->
-/* 将此文件命名为 style.css，放与上述 HTML 文件同级目录 */
+/* ===================
+   通用样式
+   =================== */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
-  background: #fafafa;
+  background: #fff;
   color: #333;
 }
 
-header {
-  background: #1e1e1e;
-  padding: 1rem 2rem;
+a {
+  text-decoration: none;
+  color: #333;
 }
 
-.logo {
-  color: #ffd700;
-  font-size: 1.5rem;
-  font-weight: bold;
+header,
+footer {
+  width: 100%;
+  box-sizing: border-box;
 }
 
-nav {
+/* ===================
+   顶部导航部分
+   =================== */
+.header-topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
 }
 
-.nav-links {
-  list-style: none;
+/* 左侧：图标 + 课程大标题 */
+.left-section {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.course-info h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.course-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* 右侧：导航菜单 */
+.nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li a {
   font-weight: 500;
+  color: #333;
 }
 
-.hero {
-  background: linear-gradient(to right, #ffe259, #ffa751);
-  text-align: center;
-  padding: 4rem 2rem;
+.nav ul li a:hover {
+  color: #0072ce; /* CMU蓝色 */
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.active-link {
+  color: #c41230; /* CMU红色 */
 }
 
-.intro, .content {
-  max-width: 800px;
-  margin: 2rem auto;
+/* ===================
+   内容区
+   =================== */
+.main-content {
+  max-width: 900px;
+  margin: 1.5rem auto;
   padding: 0 1rem;
 }
 
+h2 {
+  margin-top: 1rem;
+  font-size: 1.75rem;
+}
+
+h3 {
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* ===================
+   页脚
+   =================== */
 footer {
   text-align: center;
-  background: #f0f0f0;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 1rem 0;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
 }
+
