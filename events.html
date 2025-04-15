@@ -213,9 +213,16 @@
     let currentIndex = 0;
 
     function openLightbox(src) {
-      const images = Array.from(document.querySelectorAll('img')).filter(img => img.onclick && img.onclick.toString().includes('openLightbox'));
-      currentGroup = images.map(img => img.getAttribute('src'));
-      currentIndex = currentGroup.indexOf(src);
+      const allSections = document.querySelectorAll('.event');
+      for (const section of allSections) {
+        const imgs = Array.from(section.querySelectorAll('img')).filter(img => img.onclick && img.onclick.toString().includes('openLightbox'));
+        const match = imgs.find(img => img.getAttribute('src') === src);
+        if (match) {
+          currentGroup = imgs.map(img => img.getAttribute('src'));
+          currentIndex = currentGroup.indexOf(src);
+          break;
+        }
+      }
       document.getElementById("lightbox-img").src = src;
       document.getElementById("lightbox").style.display = "flex";
     }
