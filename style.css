@@ -1,0 +1,63 @@
+
+<!-- ========== style.css ========== -->
+/* 将此文件命名为 style.css，放与上述 HTML 文件同级目录 */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+header {
+  background: #1e1e1e;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  color: #ffd700;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero {
+  background: linear-gradient(to right, #ffe259, #ffa751);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro, .content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+footer {
+  text-align: center;
+  background: #f0f0f0;
+  padding: 1rem;
+  margin-top: 2rem;
+}
