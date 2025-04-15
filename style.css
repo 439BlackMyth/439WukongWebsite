@@ -1,10 +1,10 @@
-/* =========================
-   全局（body, a）
-   ========================= */
+/* ===================
+   全局设置
+   =================== */
 body {
   margin: 0;
-  background: #121212; /* 深色背景 */
-  color: #e0e0e0;       /* 浅色文字 */
+  background: #121212; /* 深色背景，呼应“黑神话”主题 */
+  color: #e0e0e0;      /* 文字为浅色 */
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -13,50 +13,44 @@ a {
   color: inherit;
 }
 
-/* =========================
-   头部 header-topbar
-   ========================= */
+/* ===================
+   顶部导航
+   =================== */
 .header-topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* 让导航更宽松 */
-  padding: 1.2rem 2rem;
-
-  background-color: #1e1e1e;
+  padding: 0.8rem 1.5rem;
+  background-color: #1e1e1e;  /* 导航栏比背景略亮 */
   box-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 
-/* 左侧部分：logo-img + course-info */
 .left-section {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-/* 校徽图片（cmu_logo.png） */
+/* 校徽 */
 .logo-img {
   width: 60px;
   height: 60px;
   object-fit: contain;
 }
 
-/* 课程标题与学期信息 */
 .course-info h1 {
   margin: 0;
   font-size: 1.4rem;
-  color: #ffc107; /* 金色 */
+  color: #ffc107; /* CMU 可以换成金色或红色 */
 }
+
 .course-info p {
-  margin: 3px 0 0 0;
-  font-size: 0.9rem;
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
   color: #ccc;
 }
 
-/* =========================
-   顶部导航 nav
-   ========================= */
+/* 导航菜单 */
 .nav ul {
   display: flex;
   gap: 1rem;
@@ -81,21 +75,22 @@ a {
   color: #fff;
 }
 
-/* =========================
-   Hero Banner（index.html）
-   如果你不在 index.html 用 hero-banner，就无影响
-   ========================= */
+/* ===================
+   Hero Banner
+   =================== */
 .hero-banner {
-  min-height: 45vh; /* 可以调高一点，如 60vh */
-  background:
-    linear-gradient(to right, rgba(255,193,7,0.3), rgba(0,0,0,0.5)),
-    url('wukong_banner.jpg') center/cover no-repeat;
+  /* 你可以这里用 background-image: url() 做背景图
+     也可以在HTML中使用 <img> */
+  background: linear-gradient(to right, rgba(255,193,7,0.3), rgba(0,0,0,0.5)), 
+              url('wukong_banner.jpg') center/cover no-repeat;
+  min-height: 45vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
 }
+
 .hero-text {
   max-width: 600px;
   margin: 0 1rem;
@@ -111,7 +106,7 @@ a {
   margin-bottom: 1rem;
   color: #f8f8f8;
 }
-/* 金色按钮 */
+/* 按钮风格 */
 .btn-gold {
   display: inline-block;
   padding: 0.6rem 1.2rem;
@@ -125,9 +120,9 @@ a {
   background-color: #ffca2c;
 }
 
-/* =========================
-   主内容区（.main-content）
-   ========================= */
+/* ===================
+   主内容区
+   =================== */
 .main-content {
   max-width: 900px;
   margin: 2rem auto;
@@ -140,34 +135,18 @@ a {
 .main-content h2 {
   margin-top: 0.5rem;
   font-size: 1.6rem;
-  color: #ffc107; /* 金色 */
+  color: #ffc107;
   border-bottom: 1px solid #444;
   padding-bottom: 0.3rem;
-  margin-bottom: 1rem;
 }
 
-.main-content p,
-.main-content li {
+.main-content p {
   line-height: 1.7;
+  margin: 0.8rem 0;
   color: #ddd;
-  margin-bottom: 1rem;
 }
 
-.main-content h3 {
-  font-size: 1.2rem;
-  color: #e0e0e0;
-  margin-top: 1.2rem;
-}
-
-/* 可选：让 ul, ol 有点缩进 */
-.main-content ul,
-.main-content ol {
-  margin-left: 1.3rem;
-}
-
-/* =========================
-   content-section（index示例）
-   ========================= */
+/* 示例：额外区块 */
 .content-section {
   display: flex;
   flex-direction: column;
@@ -175,62 +154,22 @@ a {
   margin-top: 1.5rem;
 }
 
-/* 图片自适应 */
+/* 可让图片自适应宽度 */
 .img-responsive {
   max-width: 100%;
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-/* =========================
-   events.html：.event, .event-images
-   ========================= */
-.event {
-  margin-bottom: 2rem;
-  background: #2a2a2a;
-  border-radius: 6px;
-  padding: 1rem;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
-}
-.event h2 {
-  font-size: 1.2rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: #ffc107; 
-}
-.event-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-.event-images img {
-  max-width: 200px; /* 让缩略图不至于太大 */
-  border-radius: 4px;
-  border: 2px solid #333;
-  object-fit: cover;
-}
-
-/* =========================
-   reflection.html：内的 blockquote
-   ========================= */
-blockquote {
-  margin: 1rem 0;
-  padding: 0.6rem 1rem;
-  border-left: 4px solid #ffc107;
-  background: #2a2a2a;
-  color: #ddd;
-  border-radius: 4px;
-}
-
-/* =========================
-   页脚 footer
-   ========================= */
+/* ===================
+   页脚
+   =================== */
 footer {
   text-align: center;
+  padding: 1rem 0;
   background-color: #1e1e1e;
   border-top: 1px solid #333;
-  padding: 1rem;
+  font-size: 0.9rem;
   color: #ccc;
   margin-top: 2rem;
 }
